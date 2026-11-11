@@ -97,19 +97,23 @@ nav a:hover::after,nav a.on::after{width:100%}
 .welcome .points b{font-family:'Archivo',sans-serif;font-size:18px;color:var(--navy);display:block}
 .welcome .points span{font-size:15px;color:var(--muted)}
 
-/* commitment band */
-.commit{position:relative;background:var(--navy);color:#fff;overflow:hidden}
-.commit-grid{display:grid;grid-template-columns:1fr 440px;min-height:520px}
-.commit-copy{padding:110px 70px 110px 0;position:relative;z-index:2}
-.commit .label{color:#7FB8E6}
-.commit blockquote{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108;font-weight:500;font-size:clamp(28px,3.2vw,44px);line-height:1.22;margin:28px 0 40px;letter-spacing:-.01em}
-.commit blockquote span{color:#7FB8E6}
-.commit .btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff}
-.commit .btn-ghost:hover{background:#fff;color:var(--navy)}
-.commit-img{position:relative;margin-right:calc((100vw - min(1240px,92vw))/-2)}
-.commit-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center}
-.commit-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(10,30,48,0) 40%)}
-.commit .stripes{position:absolute;left:0;bottom:0;width:100%;height:6px;background:var(--mercury)}
+/* commitment: giant typographic statement */
+.commit{position:relative;background:#fff;overflow:hidden;padding:110px 0 100px;border-top:1px solid var(--line)}
+.commit::before{content:"";position:absolute;right:-8%;top:18%;width:56%;height:64%;background:var(--mercury);transform:skewX(-14deg);opacity:.55;z-index:0}
+.commit .wrap{position:relative;z-index:1}
+.c-top{display:flex;align-items:center;gap:24px;margin-bottom:30px}
+.c-rule{flex:1;height:1.5px;background:var(--navy)}
+.c-count{font-size:14px;color:var(--muted)}
+.c-line{display:flex;align-items:flex-end;gap:44px}
+.c-l2{justify-content:flex-end;margin-top:1.4vw}
+.c-word{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;font-weight:800;font-size:clamp(84px,15vw,230px);line-height:.86;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;padding-right:.06em}
+.c-fill{background:url(images/condo-courtyard.jpg) center 40%/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:saturate(1.15) contrast(1.05)}
+.c-steel{font-size:clamp(54px,9.4vw,146px);color:transparent;-webkit-text-stroke:2px var(--blue);background:linear-gradient(90deg,var(--blue),var(--blue)) left bottom/0% 100% no-repeat;-webkit-background-clip:text;background-clip:text;transition:background-size 1.4s ease .3s}
+.c-l2.in .c-steel{background-size:100% 100%}
+.c-note{max-width:300px;font-size:15.5px;color:var(--muted);padding-bottom:1.6vw;border-left:2px solid var(--blue);padding-left:18px}
+.c-note b{display:block;font-family:'Michroma',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--blue);margin-bottom:8px;font-weight:400}
+.c-foot{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:56px;padding:30px 36px;background:var(--navy);color:#fff;clip-path:polygon(0 0,100% 0,100% 100%,24px 100%,0 calc(100% - 24px))}
+.c-foot p{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108;font-size:clamp(18px,1.7vw,23px);font-weight:500;max-width:640px}
 
 /* services index */
 .services{padding:130px 0}
@@ -129,16 +133,35 @@ nav a:hover::after,nav a.on::after{width:100%}
 .sv.featured .no{color:var(--blue)}
 .sv .pill{display:inline-block;font-family:'Michroma',sans-serif;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;background:var(--blue);color:#fff;padding:5px 10px;margin-bottom:10px}
 
-/* who we serve */
-.serve{background:var(--mercury);padding:110px 0}
-.serve-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--steel);background:rgba(255,255,255,.55)}
-.serve-grid>div{padding:46px 40px}
-.serve-grid>div+div{border-left:1px solid var(--steel)}
-.serve-grid .intro h2{font-size:34px;font-weight:700;margin-top:16px}
-.serve-grid h3{font-size:24px;font-weight:600;margin:18px 0 12px}
-.serve-grid p{font-size:15.5px;color:var(--muted)}
-.serve-grid .ic{width:52px;height:52px;border:1.5px solid var(--navy);display:grid;place-items:center}
-.serve-grid .ic svg{width:24px;height:24px;stroke:var(--navy)}
+/* who we serve: split photo panels with spinning badge */
+.serve{background:var(--navy);padding:100px 0 0;position:relative}
+.s-head{text-align:center;margin-bottom:56px}
+.s-head .label{color:#7FB8E6}
+.s-head h2{color:#fff;font-size:clamp(32px,3.6vw,50px);font-weight:700;max-width:760px;margin:16px auto 0}
+.s-split{display:grid;grid-template-columns:1fr 1fr;position:relative}
+.s-panel{position:relative;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;color:#fff}
+.s-panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.s-panel:hover>img{transform:scale(1.06)}
+.s-pm::after,.s-cb::after{content:"";position:absolute;inset:0}
+.s-pm::after{background:linear-gradient(200deg,rgba(2,110,186,.25) 0%,rgba(2,79,135,.92) 62%,#013A63 100%)}
+.s-cb::after{background:linear-gradient(160deg,rgba(10,30,48,.2) 0%,rgba(10,30,48,.9) 62%,#071522 100%)}
+.s-in{position:relative;z-index:2;padding:60px 70px 64px;width:100%}
+.s-cb .s-in{padding-left:110px}
+.s-pm .s-in{padding-right:110px}
+.s-tag{font-family:'Michroma',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#BFD9EE}
+.s-panel h3{color:#fff;font-size:clamp(44px,5vw,76px);font-weight:800;font-variation-settings:'wdth' 118;line-height:.92;margin:12px 0 28px;text-transform:uppercase;letter-spacing:-.02em}
+.s-panel ul{list-style:none;display:grid;gap:0;max-width:420px;border-top:1px solid rgba(255,255,255,.28)}
+.s-panel li{padding:14px 0 14px 34px;border-bottom:1px solid rgba(255,255,255,.28);position:relative;font-size:16px}
+.s-panel li::before{content:"";position:absolute;left:4px;top:21px;width:11px;height:11px;border:2px solid #fff;transform:rotate(45deg)}
+.s-cb li::before{border-color:#7FB8E6}
+.s-link{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;padding:14px 22px;background:#fff;color:var(--navy);transition:.25s}
+.s-link svg{width:16px;height:16px}
+.s-link:hover{background:var(--blue);color:#fff}
+.s-badge{position:absolute;left:50%;top:50%;width:190px;height:190px;transform:translate(-50%,-50%);z-index:5;border-radius:50%;background:#fff;box-shadow:0 0 0 10px rgba(255,255,255,.18),0 24px 60px rgba(0,0,0,.35);display:grid;place-items:center}
+.s-badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.s-badge text{font-family:'Michroma',sans-serif;font-size:11.2px;letter-spacing:.22em;fill:var(--navy)}
+.s-badge img{width:96px;height:auto}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* testimonials */
 .voices{padding:130px 0 120px;overflow:hidden}
@@ -229,12 +252,20 @@ footer{background:var(--mist);border-top:6px solid var(--blue)}
   .welcome{padding:90px 0}
   .welcome-grid{gap:60px}
   .welcome-media{margin-left:22px}
-  .commit-copy{padding:80px 0 50px}
-  .commit-img{height:300px;margin:0 -4vw}
-  .commit-img::after{background:linear-gradient(180deg,var(--navy),rgba(10,30,48,0) 50%)}
+  .commit{padding:80px 0}
+  .c-line,.c-l2{flex-direction:column;align-items:flex-start;gap:18px}
+  .c-l2{margin-top:30px}
+  .c-l2 .c-note{order:2}
+  .c-foot{flex-direction:column;align-items:flex-start}
+  .c-count{display:none}
   .sv-head,.v-head{flex-direction:column;align-items:flex-start}
-  .serve-grid{grid-template-columns:1fr}
-  .serve-grid>div+div{border-left:0;border-top:1px solid var(--steel)}
+  .s-split{grid-template-columns:1fr}
+  .s-panel{min-height:520px}
+  .s-in,.s-cb .s-in,.s-pm .s-in{padding:50px 6vw}
+  .s-cb .s-in{padding-top:120px}
+  .s-badge{width:150px;height:150px}
+  .s-badge img{width:76px}
+  .s-badge text{font-size:13px}
   .v-card{flex-basis:80%}
   .q-side{padding:80px 0 40px;border-right:0}
   form{padding:30px 0 90px}
@@ -335,15 +366,25 @@ footer{background:var(--mist);border-top:6px solid var(--blue)}
 </section>
 
 <section class="commit" id="commitment">
-  <div class="wrap commit-grid">
-    <div class="commit-copy rv">
+  <div class="wrap">
+    <div class="c-top rv">
       <div class="label">Our Commitment</div>
-      <blockquote>We recognize that every condo is a resident's <span>home</span>, and an owner's <span>investment</span>. We clean it that way.</blockquote>
-      <a class="btn btn-ghost" href="#contact">Request a Free Estimate</a>
+      <span class="c-rule"></span>
+      <span class="c-count">Two words guide every building we clean</span>
     </div>
-    <div class="commit-img"><img src="images/condo-courtyard.jpg" alt="Condominium courtyard in Calgary"></div>
+    <div class="c-line c-l1 rv">
+      <span class="c-word c-fill">Home</span>
+      <p class="c-note"><b>01</b>Every condo we look after is someone's home. We treat its hallways, lobbies and shared spaces with that in mind.</p>
+    </div>
+    <div class="c-line c-l2 rv">
+      <p class="c-note"><b>02</b>It is also an owner's investment. Clean, well-kept common areas help protect it, so we flag issues the moment we see them.</p>
+      <span class="c-word c-steel">&amp;&nbsp;Investment</span>
+    </div>
+    <div class="c-foot rv">
+      <p>We recognize that every condo is a resident's home and an owner's investment.</p>
+      <a class="btn btn-blue" href="#contact">Request a Free Estimate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
-  <div class="stripes"></div>
 </section>
 
 <section class="services" id="services">
@@ -386,23 +427,41 @@ footer{background:var(--mist);border-top:6px solid var(--blue)}
 </section>
 
 <section class="serve">
-  <div class="wrap">
-    <div class="serve-grid rv">
-      <div class="intro">
-        <div class="label">Who We Work With</div>
-        <h2>Partners to the people who run Calgary's buildings.</h2>
+  <div class="s-head wrap rv">
+    <div class="label">Who We Work With</div>
+    <h2>Partners to the people who run Calgary's buildings.</h2>
+  </div>
+  <div class="s-split">
+    <article class="s-panel s-pm rv">
+      <img src="images/condo-building.jpg" alt="Calgary condominium managed by a property manager">
+      <div class="s-in">
+        <span class="s-tag">For</span>
+        <h3>Property<br>Managers</h3>
+        <ul>
+          <li>Regular updates on building issues</li>
+          <li>Special requests handled quickly</li>
+          <li>A team you do not have to chase</li>
+        </ul>
+        <a href="#contact" class="s-link">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-      <div>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="3" width="16" height="18"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2M11 21v-3h2v3"/></svg></div>
-        <h3>Property Managers</h3>
-        <p>Regular updates on building issues, quick turnaround on special requests and a team you do not have to chase.</p>
-      </div>
-      <div>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1.1-.3 2.6-.5 4-.5 3.3 0 6 2.7 6 6"/></svg></div>
-        <h3>Condo Boards</h3>
-        <p>Common areas that feel cleaner and fresher, with problems spotted early and reported before they grow.</p>
-      </div>
+    </article>
+    <div class="s-badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#ring">QUICKSILVER CLEANING · CALGARY · CONDOMINIUMS · </textPath></text></svg>
+      <img src="images/quicksilver-logo.png" alt="">
     </div>
+    <article class="s-panel s-cb rv">
+      <img src="images/condo-courtyard.jpg" alt="Condominium courtyard cared for by a condo board">
+      <div class="s-in">
+        <span class="s-tag">For</span>
+        <h3>Condo<br>Boards</h3>
+        <ul>
+          <li>Common areas that feel cleaner and fresher</li>
+          <li>Problems spotted early and reported</li>
+          <li>Special tasks completed promptly</li>
+        </ul>
+        <a href="#contact" class="s-link">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
   </div>
 </section>
 
